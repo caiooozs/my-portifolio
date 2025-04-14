@@ -1,5 +1,6 @@
 'use client'
-import { Card, CardContent, CardTitle, CardDescription, CardHeader, CardFooter } from "../ui/card";
+
+import { Card, CardContent, CardTitle, CardDescription, CardHeader, CardFooter } from "./ui/card";
 import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
 import peopleSync from "@/img/peoplesync_exemple.png"

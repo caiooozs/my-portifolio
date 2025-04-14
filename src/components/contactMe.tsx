@@ -9,24 +9,50 @@ import {
     FormDescription,
     FormMessage,
     FormField,} from "@/components/ui/form"
-import { Button } from "../ui/button"
-import { Card, CardTitle} from "../ui/card"
-import { Input } from "../ui/input"
+import { Button } from "./ui/button"
+import { Card, CardTitle } from "./ui/card"
+import { Input } from "./ui/input"
 import { RiH1 } from "react-icons/ri"
 import { useForm } from "react-hook-form"
-import { Textarea } from "../ui/textarea"
 
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { register } from "module"
+import { Textarea } from "./ui/textarea"
 
 
 export const ContactMe = () =>{
 
     const form = useForm()
 
+    const formSchema = z.object({
+        username:
+            z.string()
+            .min(3,"Put a valueble name."),
+
+        email:
+            z.string()
+            .email("Put a valuable email."),
+
+        mensage:
+            z.string()
+            .min(15)
+            
+    })
+
+
+    const {
+        register,
+        handleSubmit,
+        formState: {errors},
+    } = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema)
+    })
 
 
 
+
+    
     return(
         <>
             <div id="contact" className="flex justify-center">
@@ -35,7 +61,6 @@ export const ContactMe = () =>{
 
             <div className="p-6">
                 <form>
-
                     <Card className="w-2/4 bg-transparent p-12 mx-auto text-[#fff] ">
                         <Form {...form}>
                             <FormField
@@ -45,7 +70,8 @@ export const ContactMe = () =>{
                                 <FormItem>
                                     <FormLabel />
                                     <FormControl>
-                                        <Input 
+                                        <Input
+                                        {...register("username")}
                                         placeholder="Your Name"></Input>
                                     </FormControl>
                                     <FormDescription />

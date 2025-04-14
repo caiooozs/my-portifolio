@@ -1,18 +1,19 @@
 'use client'
 import Image from "next/image"
-import photo from "@/img/caio-photo.jpg"
+import { caio } from "@/constants/index"
 export const AboutMe = () =>{
     return(
-        <>
+    <>
         <div id="about" className="flex justify-center p-24 items-center gap-48">
-            <div className="w-1/3 ">
+            <div className="w-1/3">
                 <Image 
-                src={photo}
-                alt="caio's photo"
+                src={caio.photo}
+                alt={caio.title}
                 className="rounded-full object-cover"
                 />
             </div>
-            
+
+
             <div className="md:space-y-10 max-w-4xl text-start">
                 <h1 className="text-[#fff] font-bold text-7xl">About <span className="text-[#D5491D]">Me</span></h1>
                 <ul className="text-[#fff] font-light text-4xl">
@@ -23,9 +24,7 @@ export const AboutMe = () =>{
                 </ul>
             </div>
         </div>
-        </>
+    </>
     )
 }
 
-
-// className="text-white text-center max-w-xl font-bold"
