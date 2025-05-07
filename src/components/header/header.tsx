@@ -1,16 +1,16 @@
 'use client'
 
-import { caio } from "@/constants";
 import Image from "next/image";
-import logo from "@/img/logo.png"
-
+import { Logo } from "@/constants";
 export const Header = () =>{
     return(
         <>
            <div id="header" className="flex justify-between md:items-center bg-[#222222] sm:h-24 sm:items-center sm:p-6 md:h-24 md:p-12 md:w-full">
                 <Image 
-                src={caio.photo}
-                alt={caio.title}
+                src={Logo.logo}
+                alt={Logo.title}
+                width={30}
+                height={30}
                 className="w-24 transition-transform hover:scale-105 animate-[float_4s_ease-in-out_infinite]"
                 />
                     <nav className="text-[#fff] flex gap-10">
